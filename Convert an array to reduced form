@@ -1,0 +1,14 @@
+#code
+t = int(input())
+while(t>0):
+    n = int(input())
+    list_a = list(map(int,input().split()))
+    list_sort = list_a.copy()
+    list_sort.sort()
+    dictionary = {}
+    for i in range(n):
+        dictionary[list_sort[i]] = i
+    for j in range(n):
+        print(dictionary[list_a[j]],end=" ")
+    print()
+    t -=1
