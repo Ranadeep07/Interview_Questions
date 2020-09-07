@@ -1,0 +1,19 @@
+class Solution {
+    public String restoreString(String s, int[] indices) {
+        HashMap<Integer, Character> hMap = new HashMap<>();
+		TreeMap<Integer, Character> treeMap = new TreeMap<>();
+		String resultString = "";
+		char a[] = s.toCharArray();
+		for (int i = 0; i < indices.length; i++) {
+			hMap.put(indices[i], a[i]);
+		}
+		treeMap.putAll(hMap);
+		for (int i = 0; i < treeMap.size(); i++) {
+			a[i] = treeMap.get(i);
+		}
+		for (char ch: a) {
+			resultString += ch;
+		}
+		return resultString;
+    }
+}
