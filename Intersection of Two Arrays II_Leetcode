@@ -1,0 +1,24 @@
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+      if(nums1.length>nums2.length) {
+			return intersect(nums2, nums1);
+		}
+		HashMap<Integer, Integer> hMap = new HashMap<>();
+		for (int i = 0; i < nums1.length; i++) {
+			hMap.put(nums1[i],hMap.getOrDefault(nums1[i], 0)+1);
+		}
+		ArrayList<Integer> aList = new ArrayList<>();
+		for (int i = 0; i < nums2.length; i++) {
+			int count = hMap.getOrDefault(nums2[i], 0);
+			if(count>0) {
+                aList.add(nums2[i]);
+				hMap.put(nums2[i], count-1);
+			}
+		}
+		int result[] = new int[aList.size()];
+		for (int i = 0; i < result.length; i++) {
+			result[i] = aList.get(i);
+		}
+		return result;
+    }
+}
