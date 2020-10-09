@@ -1,1 +1,1 @@
-This is repository where i have uploaded all the Competitive Programming Problems till date. You'll be able find to find problem from GeekForGeeks, Hackerrank, Leetcode etc.
+Here i have uploaded a lot of the popular Competitive Programming Problems which have been asked in many tech giants like Google, Amazon, FaceBook, Apple, Netflix etc. You'll be able find to find problem from GeekForGeeks, Hackerrank, Leetcode etc.
