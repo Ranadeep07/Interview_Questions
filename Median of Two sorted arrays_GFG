@@ -1,0 +1,82 @@
+// { Driver Code Starts
+//Initial Template for Java
+
+/*package whatever //do not write package name here */
+
+import java.io.*;
+
+import java.util.*;
+class GFG {
+	public static void main (String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int t=sc.nextInt();
+		
+		while(t-->0)
+		{
+		    int n,m;
+		    n=sc.nextInt();
+		    m=sc.nextInt();
+		    
+		    int arr[]=new int[n];
+		    int brr[]=new int[m];
+		    
+		    for(int i=0;i<n;i++)
+		    {
+		        arr[i]=sc.nextInt();
+		    }
+		    
+		    for(int i=0;i<m;i++)
+		    {
+		        brr[i]=sc.nextInt();
+		    }
+		    
+		     if(n < m)
+	        System.out.println(findMedian(arr, n, brr, m));
+	         else
+	        System.out.println(findMedian(brr, m, arr, n));
+		}
+	}
+	    
+ // } Driver Code Ends
+
+
+//User function Template for Java
+
+
+public static int findMedian(int arr[], int n, int brr[], int m){
+     int mergeArray[] = merge(arr, brr);
+	    int length = mergeArray.length-1, median = 0;
+	    if(mergeArray.length % 2 == 0) {
+	    	median =  (mergeArray[length/2]+(mergeArray[length/2+1]))/2; 
+	    }else {
+			median = mergeArray[length/2];
+		}
+	    return median;
+}
+static int[] merge(int a[],int b[]) {
+		int i = 0,j = 0, k = 0;
+		
+		int merge[] = new int[a.length+b.length];
+		while (i < a.length && j < b.length) {
+			if(a[i] <= b[j]) {
+				merge[k++] = a[i];
+				i++;
+			}
+			else {
+				merge[k++] = b[j];
+				j++;
+			}
+			
+		}
+		for(int c = j ; c < b.length ; c++) {
+			merge[k++] = b[c]; 
+		}
+		return merge;
+	}
+
+// { Driver Code Starts.
+
+
+
+}  // } Driver Code Ends
