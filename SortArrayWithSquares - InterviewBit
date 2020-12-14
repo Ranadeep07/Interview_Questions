@@ -1,0 +1,55 @@
+package Problems;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+
+public class SortArrayWithSquares {
+	public static void main(String[] args) {
+		ArrayList<Integer> arrayList = new ArrayList<>();
+		arrayList.add(-6);
+		arrayList.add(-3);
+		arrayList.add(-1);
+		arrayList.add(2);
+		arrayList.add(4);
+		arrayList.add(5);
+		SortWithSquares obj = new SortWithSquares();
+		System.out.println(obj.solve(arrayList));
+	}
+	
+	
+}
+class SortWithSquares {
+    public ArrayList<Integer> solve(ArrayList<Integer> A) {
+    	
+//    	********* O(nlogn) Approach ************
+//    	ArrayList<Integer> sortedList = new ArrayList<>();
+//    	for(int i : A) {
+//    		sortedList.add(i*i);
+//    	}
+//    	Collections.sort(sortedList);
+//    	return sortedList;
+    	
+//    	************** O(n) Approach *****************
+//    	As the given array is sorted so we can go for two pointer approach
+    	
+    	int arr[] = new int[A.size()];
+    	int start = 0 ,end = A.size() - 1, index = arr.length - 1;
+    	ArrayList<Integer> sortedList = new ArrayList<>();
+    	while (start < end) {
+    		if(Math.abs(A.get(start)) > Math.abs(A.get(end))) {
+    			arr[index--] = A.get(start)*A.get(start);
+    			start++;
+    		}else {
+				arr[index--] = A.get(end)*A.get(end);
+				end--;
+			}	
+		}
+    	arr[index] = A.get(start)*A.get(start);
+    	for(int i : arr) {
+    		sortedList.add(i);
+    	}
+    	return sortedList;
+    }
+}
+
