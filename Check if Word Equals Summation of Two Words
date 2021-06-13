@@ -1,0 +1,27 @@
+class Solution {
+    public boolean isSumEqual(String firstWord, String secondWord, String targetWord) {
+         HashMap<Character, Integer> hMap = new HashMap<>();
+        int asciiStartValue = 97;
+        for (int i = 0; i < 26; i++) {
+            hMap.put((char) asciiStartValue, i);
+            asciiStartValue++;
+        }
+        String firstNum = "",secondNum = "",targetNum = "";
+        for(int i=0; i < firstWord.length();i++){
+           firstNum += String.valueOf(hMap.get(firstWord.charAt(i)));
+        }
+       // System.out.println(firstNum);
+        for(int i=0; i < secondWord.length();i++){
+           secondNum += String.valueOf(hMap.get(secondWord.charAt(i)));
+        }
+        //System.out.println(secondNum);
+        for(int i=0; i < targetWord.length();i++){
+           targetNum += String.valueOf(hMap.get(targetWord.charAt(i)));
+        }
+        //System.out.println(targetNum);
+        int sumOfTwo = Integer.valueOf(firstNum) +  Integer.valueOf(secondNum);
+        //System.out.println(sumOfTwo);
+        return sumOfTwo == Integer.valueOf(targetNum);
+                                      
+    }
+}
