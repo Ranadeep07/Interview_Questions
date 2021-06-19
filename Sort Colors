@@ -1,0 +1,21 @@
+class Solution {
+    public void sortColors(int[] nums) {
+        int zero_count =0, one_count = 0, two_count = 0;
+        for(int i : nums){
+            if(i == 0) zero_count++;
+            else if(i == 1) one_count++;
+            else two_count++;
+        }
+        String res = "";
+        int index = 0;
+        while(zero_count --> 0){
+            nums[index++] = Integer.valueOf("0");
+        }
+        while(one_count --> 0){
+            nums[index++] = Integer.valueOf("1");
+        }
+        while(two_count --> 0){
+            nums[index++] = Integer.valueOf("2");
+        }
+    }
+}
