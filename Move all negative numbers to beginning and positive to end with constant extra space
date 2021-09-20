@@ -1,0 +1,43 @@
+import java.util.*;
+
+public class SortNegative {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+        solve(arr);
+        sc.close();
+    }
+    static void solve(int arr[]){
+        ArrayList<Integer> negativeList = new ArrayList<>();
+        ArrayList<Integer> positiveList = new ArrayList<>();
+        ArrayList<Integer> finalList = new ArrayList<>();
+        
+        for(int i : arr){
+            if(i < 0){
+                negativeList.add(i);
+            }else{
+                positiveList.add(i);
+            }
+        }
+        int index = 0;
+        for (int i = 0; i < negativeList.size(); i++) {
+            arr[index++] = negativeList.get(i); 
+        }
+        for (int i = 0; i < positiveList.size(); i++) {
+            arr[index++] = positiveList.get(i); 
+        }
+        for (int i : negativeList) {
+            finalList.add(i);
+        }
+        for (int i : positiveList) {
+            finalList.add(i);
+        }
+        for (int i = 0; i < finalList.size(); i++) {
+            System.out.print(finalList.get(i)+" ");
+        }
+    }
+}
