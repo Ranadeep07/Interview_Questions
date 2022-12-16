@@ -1,0 +1,11 @@
+class Solution {
+    public int[] runningSum(int[] nums) {
+        int newArr[] = new int[nums.length];
+        int sum = 0, index = 0;
+        for(int i: nums){
+            sum += i;
+            newArr[index++] = sum;
+        }
+        return newArr;
+    }
+}
