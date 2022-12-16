@@ -1,0 +1,30 @@
+class Solution {
+    public int pivotIndex(int[] nums) {
+        int pivot = -1;
+        for(int i = 0; i < nums.length; i++){
+            if((i == 0 && giveRightSum(i, nums) == 0) 
+            || (i == nums.length - 1 && giveLeftSum(i, nums) == 0)){
+                return i;
+            }
+            if(giveRightSum(i, nums) == giveLeftSum(i, nums)){
+                pivot = i;
+                break;
+            }
+        }
+        return pivot;
+    }
+    public int giveLeftSum(int currIndex, int arr[]){
+        int sum = 0;
+        for(int i = 0; i < currIndex; i++){
+            sum += arr[i];
+        }
+        return sum;
+    }
+    public int giveRightSum(int currIndex, int arr[]){
+        int sum = 0;
+        for(int i = currIndex+1; i < arr.length; i++){
+            sum += arr[i];
+        }
+        return sum;
+    }
+}
