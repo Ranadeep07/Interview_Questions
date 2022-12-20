@@ -1,0 +1,16 @@
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        HashMap<Character, Character> hm = new HashMap<Character, Character>();
+        String newStr = "";
+        for(int i = 0; i < s.length(); i++){
+            if(!hm.containsValue(t.charAt(i))){
+              hm.put(s.charAt(i), t.charAt(i));   
+            }
+        }
+        for(char ch: s.toCharArray()){
+            newStr += String.valueOf(hm.get(ch));
+        }
+
+        return t.equals(newStr);
+    }
+}
